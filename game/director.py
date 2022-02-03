@@ -1,6 +1,6 @@
-from word import Word
-from jumper import Jumper
-from terminal_service import TerminalService
+from game.word import Word
+from game.jumper import Jumper
+from game.terminal_service import TerminalService
 
 class Director:
     def __init__(self) -> None:
@@ -36,12 +36,27 @@ class Director:
         pass
 
     def _print_board(self):
+        """Prints the edited board from jumper
+
+        Args: 
+            self (Director): An instance of Director.
+        """
         self.terminal_service.write_text(self.jumper)
         pass
 
     def _get_input(self):
-        _input = self.terminal_service.read_number('Guess a letter [a-z]: ')
-        self.word.get_letters(_input)
+        """Gets player input and sends it to word
+
+        Args: 
+            self (Director): An instance of Director.
+        """
+        _input = self.terminal_service.read_text('Guess a letter [a-z]: ')
+        self.word.process_guess(_input)
 
     def _check_judge(self):
-        self._is_playing = self.judge.win_or_lose()
+        """Will check if the player has won or lost yet
+
+        Args: 
+            self (Director): An instance of Director.
+        """
+        self._is_playing = self.jumper.is_alive()

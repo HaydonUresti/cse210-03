@@ -17,9 +17,17 @@ class Player:
     Args:
       Guess: The letter passed as a string
     '''
+    was_guessed = False
     for i in self._player_guesses:
-      print(i)
-      if i == guess:
-        return True
-      else:
-        self._player_guesses.append(guess)
+      # print(f'letter: {i}')
+      if i != guess:
+        continue
+      elif i == guess:
+        print('already guessed')
+        was_guessed = True
+        break
+    
+    if was_guessed == False:
+      self._player_guesses.append(guess)
+
+    return was_guessed
