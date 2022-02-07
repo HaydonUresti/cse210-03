@@ -11,6 +11,11 @@ class Word:
    def select_word(self):
        return random.choice(self.word_list)
 
+    def convert_to_string(string):
+    list1=[]
+    list1[:0]=string
+    return list1
+
    def get_letters(self, guess):
       
         if guess in self._selected_word:
