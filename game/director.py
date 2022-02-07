@@ -24,7 +24,8 @@ class Director:
             self._print_word()
             self._print_board()
             self._get_input()
-            self._check_judge()
+            if self.word.is_not_in_word():
+                self.jumper.remove_line()
     
     def _print_word(self):
         """Prints the edited word from word
