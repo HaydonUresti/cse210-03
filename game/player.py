@@ -13,9 +13,11 @@ class Player:
 
   def is_guessed(self, guess):
     '''Checks if a letter has already been guessed by the user
+      Returns true if guessed, returns false if not
+      If the letter was not guessed, it adds it to the list of guessed letters
 
     Args:
-      Guess: The letter passed as a string
+      Guess: The letter passed as a string      
     '''
     was_guessed = False
     for i in self._player_guesses:
