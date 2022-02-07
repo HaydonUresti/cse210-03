@@ -22,7 +22,7 @@ class Word:
                     self._blank_word.insert(index, guess)
         self._blank_word = ''.join(self._blank_word)   
         
-        return self._blank_word
+        return str(self._blank_word)
 
    def process_guess(self, guess):
         self.player.is_guessed(guess)
