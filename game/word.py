@@ -22,7 +22,7 @@ class Word:
         
         # if guess in self._selected_word:
         #     self._not_in_word=True
-            index = 0
+            index = -1
             for item in self._selected_word:
                 index += 1
                 if item == guess:
