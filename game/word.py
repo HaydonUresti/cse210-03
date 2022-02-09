@@ -10,7 +10,7 @@ class Word:
        self._not_in_word = False
        self._word_list = ['contradiction', 'instinct', 'professor', 'trench', 'strategic',
        'overview', 'economics', 'transmission', 'goalkeeper', 'presidential', 'resignation',
-       '']
+       'momentum']
        self._selected_word = self._convert_to_list(self._select_word())
        self._blank_word = self._convert_to_list('_' * len(self._selected_word))
        self._player = Player()
