@@ -26,6 +26,7 @@ class Director:
             self._get_input()
             if self.word.is_not_in_word():
                 self.jumper.remove_line()
+            self._check_judge()
     
     def _print_word(self):
         """Prints the edited word from word
@@ -60,7 +61,11 @@ class Director:
         Args: 
             self (Director): An instance of Director.
         """
-        self._is_playing = self.jumper.is_alive()
+        if not self.jumper.is_alive():
+            self.terminal_service.write_text(self.jumper)
+            self._is_playing=False
+
         if(self.word.is_finished()):
             self.terminal_service.write_text('You Win!')
+            self.terminal_service.write_text(self.jumper.jumper_win())
             self._is_playing = False

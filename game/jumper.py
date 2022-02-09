@@ -59,4 +59,16 @@ class Jumper:
         Returns:
             jumper_img 
         """
-        return str(self._assemble_jumper())
+        return '\n'+str(self._assemble_jumper())
+
+    def jumper_win(self) -> str:
+        """Returns jumper as a string
+
+        Args: 
+            self (Jumper): An instance of Jumper.
+
+        Returns:
+            jumper_img 
+        """
+        self._jumper_img = '  \\o/ \n   |  \n  / \\ \n^^^^^^^'
+        return str(self._jumper_img)
