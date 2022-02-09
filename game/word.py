@@ -38,6 +38,7 @@ class Word:
    def process_guess(self, guess):
         self.player.is_guessed(guess)
         self.get_letters(guess)
+        self._check_win()
 
    def is_not_in_word(self) -> bool:
        return self._not_in_word
@@ -49,6 +50,12 @@ class Word:
         list1=[]
         list1[:0]=string
         return list1
+
+   def _check_win(self):
+       if '_' in self._blank_word:
+           return
+       else:
+            self._word_finished=True
 
    def is_finished(self) -> bool:
         return self._word_finished
