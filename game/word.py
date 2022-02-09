@@ -20,7 +20,6 @@ class Word:
        return str(string)
 
    def get_letters(self, guess):
-        
         if guess in self._selected_word:
             self._not_in_word=True
             index = -1
