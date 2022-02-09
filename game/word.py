@@ -21,7 +21,7 @@ class Word:
 
    def get_letters(self, guess):
         if guess in self._selected_word:
-            self._not_in_word=True
+            self._not_in_word=False
             index = -1
             for item in self._selected_word:
                 index += 1
@@ -32,7 +32,7 @@ class Word:
                     if item == 'c':
                       print('Here be "c"')
         else:
-            self._not_in_word=False
+            self._not_in_word=True
             return self._to_string(self._blank_word)
 
    def process_guess(self, guess):
