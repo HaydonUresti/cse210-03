@@ -8,6 +8,7 @@ class Word:
        self._selected_word = self.convert_to_list(self.select_word())
        self._blank_word = self.convert_to_list('_' * len(self._selected_word))
        self.player = Player()
+       self._word_finished = False
    
    def select_word(self):
        return random.choice(self.word_list)
@@ -20,8 +21,8 @@ class Word:
 
    def get_letters(self, guess):
         
-        # if guess in self._selected_word:
-        #     self._not_in_word=True
+        if guess in self._selected_word:
+            self._not_in_word=True
             index = -1
             for item in self._selected_word:
                 index += 1
@@ -31,8 +32,8 @@ class Word:
                     self._blank_word.insert(index, guess)
                     if item == 'c':
                       print('Here be "c"')
-        # else:
-        #     self._not_in_word=False
+        else:
+            self._not_in_word=False
             return self._to_string(self._blank_word)
 
    def process_guess(self, guess):
@@ -49,3 +50,6 @@ class Word:
         list1=[]
         list1[:0]=string
         return list1
+
+   def is_finished(self) -> bool:
+        return self._word_finished

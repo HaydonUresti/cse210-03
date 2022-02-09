@@ -61,3 +61,6 @@ class Director:
             self (Director): An instance of Director.
         """
         self._is_playing = self.jumper.is_alive()
+        if(self.word.is_finished()):
+            self.terminal_service.write_text('You Win!')
+            self._is_playing = False
